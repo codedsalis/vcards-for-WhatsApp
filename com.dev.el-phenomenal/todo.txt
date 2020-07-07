@@ -1,0 +1,38 @@
+Users fill the form on the website.. Which makes up the compiled contact
+
+At the end of each day, the compiled contacts are to be converted to Vcf and uploaded on the download page where users can download it
+
+There can be a place where all previous files will be available for download
+
+Free users have to share the embedded messages to be able to download the file,
+But premium users won't have to
+
+After filling a form, a password should be generated for the free user's
+Which will be used to have access to the download page,
+After having access to the page
+When they click download,
+They will be required to share an embedded message to 15contacts
+Before the download starts
+But premium users password gives them instant download access
+
+No signing up,
+Password differentiates free from premium
+
+The system Should generate 2 different password each day. One is for Free, Other is For Premium 
+
+
+If they want to fill the form, 
+they'd have to select Free or Premium
+If they select Free:
+Maximum Character they can enter for the Whatsapp Name will be 8
+They can't give Gap in their entries for the Whatsapp name
+
+If they select premium:
+Unlimited characters
+Can give Gap and enter multiple words
+
+I don't know how it can work, but the idea is that,
+Buy 9pm every day, all contacts for that day will be compiled and available for download
+Then the previous days file will move to something like "previous files"
+
+It will be available for people who have the password

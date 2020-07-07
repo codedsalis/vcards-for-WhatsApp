@@ -1,0 +1,48 @@
+body {
+	background: #ededed;
+	/* font-family: 'Roboto', sans-serif; */
+ /* font-size: 14px; */
+}
+
+a, a:link, a:hover, a:active, a:focus {
+	color:#4de68d;
+}
+
+
+.hdr {
+	font-size: 30px;
+	font-weight: bold;
+	color: #2c3e50;
+	padding: 10px;
+	text-transform: capitalize;
+	}
+	
+	.input-group .input-group-addon .btn .btn-default {
+		background: red;
+	}
+	
+	.loader {
+  border: 3px solid #ccc;
+  border-radius: 50%;
+  border-top: 3px solid #26dad1;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 7px;
+  -webkit-animation: spin .7s linear infinite;
+  animation: spin .7s linear infinite;
+}
+
+@-webkit-keyframes spin {
+to {transform: rotate(360deg);
+}
+}
+
+@keyframes spin {
+to {transform: rotate(360deg);
+}
+}
+	
+	
+
+
