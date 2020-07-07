@@ -27,22 +27,6 @@ echo $this->widgets->breadcrumbs(array(array('label' => 'Login'
 
 ?>
 <br/>
-<style>
-body {
-	background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), rgba(0, 0, 0, 0.65) url(/assets/img/bgcover.jpg) no-repeat center
-center fixed;
-	    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    opacity:0.9;
-    padding: 10px;
-    overflow-x:hidden;
-    width: 100%;
-    height: 100%;
-	}
-	</style>
-
 
 <div class="row">
 <div class="col-md-3 col-sm-3">
@@ -70,11 +54,9 @@ echo'<div class="input-group">
            <input type="password" class="form-control" id="password" name="password" value="' . set_value('password') . '" placeholder="Password" required/></div>
 <span class="text text-danger">' . form_error('password') . '</span>
            <br/>
-<button type="submit" class="btn btn-info" name="submit" onClick="return logUser()" style="width:100%;"/>Sign In</button> </form><br/><br/>
+<button type="submit" class="btn btn-success" name="submit" onClick="return logUser()" style="width:100%;"/>Sign In</button> </form><br/><br/>
 Retrieve your <a href="' . site_url('account/fpass') . '">Forgotten password</a><br/><br/>
-<center>New to ' . $this->config->item('site_name') . '? <br/>
 
- <a href="' . site_url('account/signup?act=1') . '" class="btn btn-default btn-sm" style="margin-bottom: 5px; background: #fff; border: 2px solid #ccc; border-radius: 40px; color: #000; padding: 10px; font-weight: bold;">Register as Advertiser &rarr;</a> <a href="' . site_url('account/signup?act=2') . '" class="btn btn-default btn-sm" style="margin-bottom: 5px; background: #fff; border: 2px solid #ccc; border-radius: 40px; color: #000; padding: 10px; font-weight: bold;">Register as Publisher &rarr;</a>
 </div>
 </center>
 </fieldset>
@@ -118,17 +100,7 @@ if(html.indexOf('danger') != -1) {
 $('#form').slideDown(3000);
 }
 		
-		if(html.indexOf('publisher') != -1) {
-			setTimeout(function() {
-			window.location.replace("<?php echo site_url('/dashboard/publisher'); ?>");
-			}, 4000);
-		}
-		else if(html.indexOf('advertiser') != -1) {
-			setTimeout(function() {
-			window.location.replace("<?php echo site_url('/dashboard/advertiser'); ?>");
-			}, 4000);
-		}
-		else if(html.indexOf('admin') != -1) {
+		if(html.indexOf('admin') != -1) {
 			setTimeout(function() {
 			window.location.replace("<?php echo site_url('/dashboard'); ?>");
 			}, 4000);

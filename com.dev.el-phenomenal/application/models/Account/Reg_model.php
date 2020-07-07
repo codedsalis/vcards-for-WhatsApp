@@ -13,101 +13,19 @@ class Reg_model extends CI_Model {
                     $password = $this->input->post('password');
                     $password = password_hash($password, PASSWORD_DEFAULT);
                     
-               //Get browser info
-     if ($this->agent->is_browser()) {
-     	 $agent = $this->agent->browser().' '.$this->agent->version(); 
-     	 } 
-   elseif ($this->agent->is_robot()) {
-   	$agent = $this->agent->robot();
-   	} 
-   	elseif ($this->agent->is_mobile()) {
-   		$agent = $this->agent->mobile();
-   		} 
-   		else { $agent = 'Unidentified User Agent';
-   		}          
-             
   $fullName = $this->input->post('first_name') . ' ' . $this->input->post('last_name');
              
-             
-  //FOR EMAIL
- 	$to = $this->input->post('email');
- 	$headers = 'MIME-Version: 1.0' . "\r\n" ;
- 	$headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n" ;
-	$headers .= "From: no-reply@afriadverts.com";
-	
-		$url = '<a href="https://www.afriadverts.com/717/account/activate?ssvp=' . md5(time()) . '&rvp=' . md5($to) . '&esn=' . $username . '&csv=activation_from_registration"><button style="padding: 5px;border-radius:5px;border:1px solid #fff; background: #2c3e50; color: #fff;">Activate My Account</button></a>';
  	
- 	if($type == 2) {
- 		//SET INITIAL EARNINGS TO 100
- 		$earnings = 100;
- 		
- 		
-	$subject = '[AfriAdverts] Publisher Account Activation';
-
-  	$message = '<html>
-    <head>
-    <title>[AfriAdverts] Account Activation</title>
-    </head>
-    <body>';
-    $message .= '<center><img src="https://afriadverts.com/assets/img/aaa1.png" height="50" width="210" alt="afriadverts"/></center>';
-    $message .= '<center><b>Activate your account</b></center><br/>';
-	$message .= "Hello <b>" . $fullName . "</b>, \n\r Your Registration for Afriadverts publishers account was successful, please follow the link provided below to activate your account:<br/>
-	" . $url . " <br/>Thanks, Team Afri Adverts";
-$message .= '</body></html>';
-}
-elseif($type == 1) {
-	//SET ZERO(0) EARNINGS
-	$earnings = 0;
-	
-	
-	$subject = '[AfriAdverts] Advertiser Account Activation';
-
-  	$message = '<html>
-    <head>
-    <title>[AfriAdverts] Account Activation</title>
-    </head>
-    <body>';
-    $message .= '<center><img src="https://afriadverts.com/assets/img/aaa1.png" height="50" width="210" alt="afriadverts"/></center>';
-    $message .= '<center><h3>Activate your account</h3></center><br/>';
-	$message .= "Hello <b>" . $fullName . "</b>, \n\r Your Registration for Afriadverts Advertisers account was successful, please follow the link provided below to activate your account:<br/>
-	" . $url . " <br/>Thanks, Team Afri Adverts";
-$message .= '</body></html>';
-}
-
-	$approved = ($type == 2 ? 0 : 1);
-	$activate = 1;
-	
-	
-	//Get Affiliate referrer ID and parse it to your taste
-	$referrer = (!empty($_SESSION['afp']) ? $_SESSION['afp'] : $_COOKIE['afp']);
-	
-	//The referrer ID is in the form: aaap.pid.ID and ID is the only thing we need, so lets parse the $referrer and get the real ID
-	if(!empty($referrer)) {
-		$split = explode('.', $referrer);
-	$referrerId = $split[2]; //we have 0 = aaap, 1 = pid and 2 = ID
-	}
-	else {
-		$referrerId = '';
-	}
-	
-	
     $data = array(
    'username' => strtolower($username),
    'email' => $email,
-   'password' => $password, 'fullname' => $this->input->post('first_name') . ' ' . $this->input->post('last_name'), 
-   'right' => 0,
-   'country' => $this->input->post('country'),
-   'type' => $type,
-   'ipAddress' => $this->input->ip_address(),
-   'browser' => $agent,
-   'regDate' => time(),
-   'activate' => $activate,
-   'approved' => $approved,
-   'earning' => $earnings,
-   'referrer' => $referrerId
+   'password' => $password,
+    'fullname' => $this->input->post('first_name') . ' ' . $this->input->post('last_name'), 
+   'right' => 1,
+   'date' => time(),
 );
 
-         if($this->db->insert('dbusers', $data)) {
+         if($this->db->insert('users', $data)) {
          	//Clear the session and cookie containing the referrer ID
          	$_SESSION['afp'] = '';
          	setcookie('afp', '', time()-3600);
@@ -167,7 +85,7 @@ $data = array(
 $this->db->where('md5(email)', $email_hash
 );
 
-return $this->db->update('dbusers', $data
+return $this->db->update('users', $data
 );
 }
 
@@ -221,7 +139,7 @@ return $this->db->update('dbusers', $data
       }
 
 				$this->db->where('uid', $uid);
-         if($this->db->update('dbusers', $data)) {
+         if($this->db->update('users', $data)) {
 $this->session->set_flashdata('update_msg', '<div class="alert alert-success fade-in">Profile updated successfully!</div>');
 }
 else {

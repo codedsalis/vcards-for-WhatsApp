@@ -1,3 +1,8 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+?>
+
 <div class="container">
         <div class="row">
             <div class="col-md-6 col-lg-6" >
@@ -8,7 +13,7 @@
                     <hr class="my-4">
                     <p>You and over 100 participants get to save each others contact in just one click</p>
                     <p class="lead">
-                    <a class="btn btn-success btn-lg" href="#" role="button">Get Started</a>
+                    <a class="btn btn-success btn-lg" href="/downloads">Download</a>
                     </p>
                 </div>
             </div>
@@ -104,7 +109,7 @@
                                 </div>
                             </div>
                             <br/>
-                            Dowmload and install the contact file which will be uploaded by 11pm in a .vcf format. This contact file will also be saved by other participants which automatically enables each participants view each other's status
+                            Dowmload and install the contact file which will be uploaded by 9:00pm in a .vcf format. This contact file will also be saved by other participants which automatically enables each participants view each other's status
                     </div>
             </div>
         </div>
@@ -137,6 +142,7 @@
                     <input type="text" id="name" class="form-control" placeholder="Name"/>
                     <span id="name-hint"></span>
                     <br/>
+                    <input type="hidden" id="key" value="<?php echo $this->library->getRandomNumbers(10); ?>"/>
                 </div>
                 <div class="col-md-6 col-lg-6">
                     <input type="number" id="number" class="form-control" placeholder="Phone number"/>
@@ -147,7 +153,7 @@
                 <span id="loader"></span>
                 </div>
                 <div class="col-md-4 col-lg-4"></div>
-                <button type="submit" onclick="submitEntry()" class="btn btn-success" style="width: 100%;">Submit</button>
+                <button type="submit" onclick="submitEntry('/ajax/entry')" class="btn btn-success" style="width: 100%;">Submit</button>
             <!-- </form> -->
             </div>
         </section>
@@ -156,5 +162,58 @@
         </div>
         </div>
         <br/>
+        <br/>
+    <div class="row">
+        <div class="row card-text align-items-center justify-content-center">
+                    <div class="col-7 text-center">
+                        <h1>Screenshots</h1>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-aos="zoom-in" data-aos-easing="linear"
+     data-aos-duration="2000">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/assets/img/img1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/img2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/img3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/img4.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </div>
+    </div>
+
+
         <br/>    
 </div>
+
+
+<br/><div style="padding: 10px;">&copy; Copyright <?php echo date('Y'); ?> Wassapviews - Get more whatsapp views</div>
+
+
+<script>
+  AOS.init();
+</script>
+<script src="/assets/js/library.js"></script>
+</body>
+</html>

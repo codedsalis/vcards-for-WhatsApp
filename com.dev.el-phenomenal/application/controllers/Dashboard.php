@@ -13,12 +13,14 @@ class Dashboard extends CI_Controller {
   $this->load->model('Account/Login_model');
   $this->load->model('Account/Reg_model');
   $this->load->model('AdminModel');
-  $this->load->model('PublisherModel');
-  $this->load->model('AdvertiserModel');
 }
 
 	public function index() {
-		$data['title'] = 'Admin Dashboard';
+    $data['title'] = 'Admin Dashboard';
+    
+
+    $data['contacts'] = $this->AdminModel->getContactsToday();
+    $data['vcards'] = $this->AdminModel->getAllDownloads();
 		
 		
 				$this->load->view('inc/Glob');

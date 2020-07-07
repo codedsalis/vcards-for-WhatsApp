@@ -1,11 +1,14 @@
 body {
 	background: #ededed;
-	/* font-family: 'Roboto', sans-serif; */
- /* font-size: 14px; */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
 }
 
 a, a:link, a:hover, a:active, a:focus {
-	color:#4de68d;
+	color:#02B875;
 }
 
 

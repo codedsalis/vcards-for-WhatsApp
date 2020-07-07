@@ -71,6 +71,16 @@ header("location: $url");
 }
 
 
+    public function tos() {
+        $data['title'] = "Terms of Service";
+
+        $this->load->view('inc/Glob');
+        $this->load->view('inc/header', $data);
+        $this->load->view('account/tos', $data);
+        // $this->load->view('inc/footer');
+    }
+
+
 //---------------------------------------------------------------
 //For forgotten password retrieval
 public function fpass() {

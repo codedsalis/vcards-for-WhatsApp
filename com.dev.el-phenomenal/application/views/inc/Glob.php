@@ -25,3 +25,7 @@ define('TIMELAPSE', 1522436171);
 
 //A constant for URL for serving advert images
 define('AD_IMG_URL', 'http://localhost/adimg');
+
+
+//Set default timezone
+date_default_timezone_set('Africa/Lagos');

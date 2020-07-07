@@ -1,5 +1,5 @@
 <?php
-if(!empty(form_error('first_name')) || !empty(form_error('last_name')) || !empty(form_error('username')) || !empty(form_error('password')) || !empty(form_error('passconf')) || !empty(form_error('email')) || !empty(form_error('website')) || !empty(form_error('country'))) {
+if(!empty(form_error('first_name')) || !empty(form_error('last_name')) || !empty(form_error('username')) || !empty(form_error('password')) || !empty(form_error('passconf')) || !empty(form_error('email'))) {
 
 echo'<div id="myModal" class="modal fade">
     <div class="modal-dialog">
@@ -18,8 +18,6 @@ echo(!empty(form_error('username')) ? '<span class="text text-danger"><span clas
 echo(!empty(form_error('password')) ? '<span class="text text-danger"><span class="glyphicon glyphicon-info-sign"></span>' . form_error('password') . '</span>' : '');
 echo(!empty(form_error('passconf')) ? '<span class="text text-danger"><span class="glyphicon glyphicon-info-sign"></span>' . form_error('passconf') . '</span>' : '');
 echo(!empty(form_error('email')) ? '<span class="text text-danger"><span class="glyphicon glyphicon-info-sign"></span>' . form_error('email') . '</span>' : '');
-echo(!empty(form_error('website')) ? '<span class="text text-danger"><span class="glyphicon glyphicon-info-sign"></span>' . form_error('website') . '</span>' : '');
-echo(!empty(form_error('country')) ? '<span class="text text-danger"><span class="glyphicon glyphicon-info-sign"></span>' . form_error('country') . '</span>' : '');
 echo'</p>';
        echo'</div>
         <div class="modal-footer">
